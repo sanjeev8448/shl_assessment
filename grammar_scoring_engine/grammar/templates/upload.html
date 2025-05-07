@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grammar Scoring Engine</title>
+</head>
+<body>
+    <h2>Upload Audio File</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if text %}
+        <h3>Transcribed Text:</h3>
+        <p>{{ text }}</p>
+        <h3>Grammar Score:</h3>
+        <p>{{ score }} / 10</p>
+    {% endif %}
+</body>
+</html>
